@@ -1,0 +1,120 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    font-family: 'Inter', sans-serif;
+    background-color: #121212;
+    color: #FFFFFF;
+    /* Custom grid pattern background */
+    background-image: 
+      linear-gradient(to right, rgba(255,255,255,0.02) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(255,255,255,0.02) 1px, transparent 1px);
+    background-size: 40px 40px;
+    background-position: center center;
+    background-attachment: fixed;
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Poppins', sans-serif;
+  }
+
+  /* Premium selection color */
+  ::selection {
+    background: rgba(255, 122, 0, 0.3);
+    color: #FFFFFF;
+  }
+
+  /* Smooth focus rings */
+  *:focus-visible {
+    outline: 2px solid #FF7A00;
+    outline-offset: 2px;
+    border-radius: 4px;
+  }
+}
+
+@layer utilities {
+  .glass-panel {
+    @apply bg-card-bg/70 backdrop-blur-md border border-border-color shadow-[0_4px_30px_rgba(0,0,0,0.1)];
+  }
+  
+  .glow-orange {
+    box-shadow: 0 0 20px rgba(255, 122, 0, 0.4);
+  }
+  
+  .glow-orange-hover:hover {
+    box-shadow: 0 0 25px rgba(255, 149, 0, 0.6);
+  }
+  
+  .text-glow {
+    text-shadow: 0 0 10px rgba(255, 122, 0, 0.5);
+  }
+
+  /* Smooth page transitions */
+  .page-transition {
+    animation: fadeSlideIn 0.4s ease-out;
+  }
+}
+
+@keyframes fadeSlideIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #1A1A1A;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #2E2E2E;
+  border-radius: 5px;
+  border: 2px solid #1A1A1A;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #FF7A00;
+}
+
+/* Hide scrollbar utility for specific areas */
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* Line clamp utilities */
+.line-clamp-1 {
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+.line-clamp-2 {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+.line-clamp-3 {
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
